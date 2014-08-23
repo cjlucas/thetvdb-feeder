@@ -1,0 +1,16 @@
+sort_by_start_time(@episodes).each do |ep|
+  next if ep.airdate.nil?
+
+  event = Icalendar::Event.new
+  event.summary = ep.series.name
+  event.dtstart = Icalendar::Values::DateTime.new(episode_start_time(ep),
+                                                  'tzid' => 'US/Eastern')
+  event.dtend = Icalendar::Values::DateTime.new(episode_end_time(ep),
+                                                'tzid' => 'US/Eastern')
+  event.location = format('%s (%.2dx%.2d)',
+                          ep.name || 'TBA', ep.season_num, ep.episode_num)
+
+  event.uid = UUIDTools::UUID.md5_create(UUIDTools::UUID_DNS_NAMESPACE,
+                                         ep.tvdb_id.to_s).to_s
+  ical.events << event
+end

@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 Dir[File.join(File.expand_path('app/jobs'), '*.rb')].each { |f| require f }
 
+require_relative '../lib/assets/caliber_template'
+
 module ThetvdbFeeder
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
