@@ -18,7 +18,10 @@ class FetchUsersFavoritesJob
     user = User.includes(:series).find(@user_id)
     user_favorites(user) do |series|
       user.series << series unless user.series.exists?(series)
-      Resque.enqueue(FetchSeriesJob, series)
+      # only enqueue if series was just added to the database
+      if (Time.now - series.created_at) < 10
+        Resque.enqueue(FetchSeriesJob, series)
+      end
     end
   end
 
