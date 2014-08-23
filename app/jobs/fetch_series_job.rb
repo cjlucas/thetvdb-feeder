@@ -8,7 +8,7 @@ class FetchSeriesJob
   end
 
   def initialize(series_id)
-    series_id = series_id.id if series_id.is_a?(Series)
+    series_id = series_id['id'] if series_id.is_a?(Hash)
     @series_id = series_id
   end
 

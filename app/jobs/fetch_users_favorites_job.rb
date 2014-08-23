@@ -10,7 +10,7 @@ class FetchUsersFavoritesJob
   end
 
   def initialize(user_id)
-    user_id = user_id.id if user_id.is_a?(User)
+    user_id = user_id['id'] if user_id.is_a?(Hash)
     @user_id = user_id
   end
 
