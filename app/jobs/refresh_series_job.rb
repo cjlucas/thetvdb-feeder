@@ -8,6 +8,11 @@ class RefreshSeriesJob
   end
 
   def work
-    Series.all.each { |series| Resque.enqueue(FetchSeriesJob, series.id) }
+    series = []
+    User.includes(:series).all.each do |user|
+      user.series.all.each { |s| series << s unless series.include?(s) }
+    end
+
+    series.each { |series| Resque.enqueue(FetchSeriesJob, series) }
   end
 end
