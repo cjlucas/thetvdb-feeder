@@ -16,7 +16,7 @@ class FeedController < ApplicationController
       event.dtend = Icalendar::Values::DateTime.new(episode_end_time(ep),
                                                     'tzid' => 'US/Eastern')
       event.location = format('%s (%.2dx%.2d)',
-                              ep.name, ep.season_num, ep.episode_num)
+                              ep.name || 'TBA', ep.season_num, ep.episode_num)
 
       event.uid = UUIDTools::UUID.md5_create(UUIDTools::UUID_DNS_NAMESPACE,
                                              ep.tvdb_id.to_s).to_s
