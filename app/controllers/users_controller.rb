@@ -25,10 +25,13 @@ class UsersController < ApplicationController
     @user = User.uuid(session[:uuid])
 
     if params.has_key?('ical_start_offset')
-      puts params['ical_start_offset']
       @user.ical_settings.start_offset = params['ical_start_offset']
     elsif params.has_key?('ical_end_offset')
       @user.ical_settings.end_offset = params['ical_end_offset']
+    elsif params.has_key?('ical_timezone')
+      @user.ical_settings.timezone = params['ical_timezone']
+    elsif params.has_key?('ical_adjust_airtime')
+      @user.ical_settings.adjust_airtime = params['ical_adjust_airtime']
     end
 
     @user.ical_settings.save

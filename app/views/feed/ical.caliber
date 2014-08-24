@@ -4,9 +4,9 @@
   event = Icalendar::Event.new
   event.summary = ep.series.name
   event.dtstart = Icalendar::Values::DateTime.new(episode_start_time(ep),
-                                                  'tzid' => 'US/Eastern')
+                                                  'tzid' => @settings.timezone)
   event.dtend = Icalendar::Values::DateTime.new(episode_end_time(ep),
-                                                'tzid' => 'US/Eastern')
+                                                'tzid' => @settings.timezone)
   event.location = format('%s (%.2dx%.2d)',
                           ep.name || 'TBA', ep.season_num, ep.episode_num)
 

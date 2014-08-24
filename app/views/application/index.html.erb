@@ -20,7 +20,13 @@
         can be added to Google Calendar as a subscribed calendar, or you
         can download and import it into the calendar app of your choice.</p>
     <p>
-      Show me episodes from <select id="ical_start_offset"><%= ical_start_offset %></select>
-      until <select id="ical_end_offset"><%= ical_end_offset %></select>.
+      Show me episodes from <select class="setting" id="ical_start_offset"><%= ical_start_offset %></select>
+      until <select class="setting" id="ical_end_offset"><%= ical_end_offset %></select>
     </p>
+    <p>
+      I want the timezone set to <select class="setting" id="ical_timezone"><%= ical_timezone %></select>
+    </p>
+    <!--<p>-->
+      <!--I <select class="setting" id="ical_adjust_airtime"><%= ical_adjust_airtime %></select> want to adjust the event times based on my chosen timezone.-->
+    <!--</p>-->
 <% end %>
