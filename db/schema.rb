@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823232223) do
+ActiveRecord::Schema.define(version: 20140824025226) do
 
   create_table "episodes", force: true do |t|
     t.integer  "tvdb_id"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20140823232223) do
     t.datetime "updated_at"
     t.integer  "series_id"
   end
+
+  create_table "ical_settings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "start_offset"
+    t.integer  "end_offset"
+    t.integer  "summary_format"
+    t.integer  "location_format"
+    t.integer  "description_format"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ical_settings", ["user_id"], name: "index_ical_settings_on_user_id"
 
   create_table "series", force: true do |t|
     t.integer  "tvdb_id"

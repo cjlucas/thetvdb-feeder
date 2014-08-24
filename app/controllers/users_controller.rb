@@ -20,4 +20,19 @@ class UsersController < ApplicationController
     session[:uuid] = nil
     head 200
   end
+
+  def update_settings
+    @user = User.where(uuid: session[:uuid]).first
+
+    if params.has_key?('ical_start_offset')
+      puts params['ical_start_offset']
+      @user.ical_settings.start_offset = params['ical_start_offset']
+    elsif params.has_key?('ical_end_offset')
+      @user.ical_settings.end_offset = params['ical_end_offset']
+    end
+
+    @user.ical_settings.save
+
+    head 200
+  end
 end
