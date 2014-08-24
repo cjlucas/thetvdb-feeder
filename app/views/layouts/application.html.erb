@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>ThetvdbFeeder</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<a href="https://github.com/cjlucas">
+  <img id="fork-me"src="<%= asset_path 'fork-me-right-dusk-blue.png' %>"
+       alt="Fork me on GitHub" />
+</a>
+
+<div id="header">
+  <div id="title">TheTVDB Feeder</div>
+  <div id="subtitle">Turn your TVDB favorites list into RSS and iCal feeds</div>
+</div>
+
+<div id="content">
+  <%= yield %>
+</div>
 
 </body>
 </html>

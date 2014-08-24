@@ -1,6 +1,6 @@
 class FeedController < ApplicationController
   def ical
-    @user = User.where(tvdb_id: params[:tvdb_id]).first
+    @user = User.where(uuid: params[:uid]).first
 
     @episodes = []
     @user.episodes

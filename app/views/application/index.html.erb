@@ -1,0 +1,14 @@
+<% if current_user.nil? %>
+    <h2>Login</h2>
+    <h4 type="button" data-toggle="popover" title="Title" data-content="Content goes here">Please enter your TVDB account ID</h4>
+    <div class="input-group login-form">
+      <input type="text" class="form-control"/>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Login</button>
+      </span>
+    </div>
+<% else %>
+    <a href="<%= logout_path uid: current_user.uuid %>">Sign out</a>
+    <h2>iCalendar</h2>
+    <a href="<%= ical_path uid: current_user.uuid %>">Here it is</a>
+<% end %>

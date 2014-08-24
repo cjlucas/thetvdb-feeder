@@ -40,6 +40,10 @@ gem 'chronic'
 
 gem 'uuidtools'
 
+gem 'thin'
+
+gem 'twitter-bootstrap-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

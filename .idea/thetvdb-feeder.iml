@@ -183,6 +183,7 @@
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.15, RVM: ruby-2.1.0 [thetvdb-feeder]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v2.3.0, RVM: ruby-2.1.0 [thetvdb-feeder]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tvdb_party (v0.7.0, RVM: ruby-2.1.0 [thetvdb-feeder]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="twitter-bootstrap-rails (v3.2.0, RVM: ruby-2.1.0 [thetvdb-feeder]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.2, RVM: ruby-2.1.0 [thetvdb-feeder]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.5.3, RVM: ruby-2.1.0 [thetvdb-feeder]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uuidtools (v2.1.5, RVM: ruby-2.1.0 [thetvdb-feeder]) [gem]" level="application" />
