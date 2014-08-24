@@ -1,15 +1,13 @@
 class FeedController < ApplicationController
   def ical
-    @user = User.where(uuid: params[:uid]).first
+    user = User.uuid(params[:uid])
 
-    @episodes = []
-    @user.episodes
+    start_date = user.ical_settings.start_offset.seconds.from_now
+    end_date = user.ical_settings.end_offset.seconds.from_now
+    @episodes = user.episodes
     .includes(:series)
-    .where('airdate > ?', DateTime.now).each { |ep| @episodes << ep }
+    .aired_between(start_date, end_date)
 
-    # render plain: ical.to_ical
     render layout: false
   end
-
-  private
 end

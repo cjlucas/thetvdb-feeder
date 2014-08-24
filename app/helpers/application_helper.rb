@@ -18,7 +18,7 @@ module ApplicationHelper
     container = {
         'a week from now' => 1.week,
         'a month from now' => 1.month,
-        'forever' => 0
+        'forever' => 5.years
     }
 
     default = 0
@@ -30,9 +30,4 @@ module ApplicationHelper
 
     }
   end
-
-  def upcoming_episodes(user)
-    user.episodes.where('airdate >= ?', Time.now)
-  end
-
 end

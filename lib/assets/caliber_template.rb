@@ -4,7 +4,7 @@ module ActionView
   module Template::Handler
     class Caliber
       def self.call(template)
-        'ical = Icalendar::Calendar.new;' +
+        a = 'ical = Icalendar::Calendar.new;' +
         template.source + '; ical.to_ical'
       end
 

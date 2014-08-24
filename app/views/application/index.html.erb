@@ -8,10 +8,10 @@
       </span>
     </div>
 <% else %>
-    <h2>Welcome Back</h2>
+    <h2>Welcome Back!</h2>
     <p>You currently have <strong><%= current_user.series.count %></strong>
       favorite series with
-      <strong><%= upcoming_episodes(current_user).count %></strong>
+      <strong><%= current_user.episodes.upcoming.count %></strong>
       upcoming episodes.</p>
     <p>Your series list was last updated <strong>yesterday</strong>, but you can <a href="#">refresh it</a> now.</p>
     <h2>iCalendar</h2>

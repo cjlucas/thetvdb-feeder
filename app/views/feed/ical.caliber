@@ -1,4 +1,4 @@
-sort_by_start_time(@episodes).each do |ep|
+@episodes.each do |ep|
   next if ep.airdate.nil?
 
   event = Icalendar::Event.new

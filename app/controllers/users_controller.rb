@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def update_settings
-    @user = User.where(uuid: session[:uuid]).first
+    @user = User.uuid(session[:uuid])
 
     if params.has_key?('ical_start_offset')
       puts params['ical_start_offset']
