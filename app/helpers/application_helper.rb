@@ -37,4 +37,10 @@ module ApplicationHelper
     }
     options_for_select(container, current_user.ical_settings.adjust_airtime)
   end
+
+  def last_scanned_in_words
+    user = current_user
+    user.scanned_at.nil? \
+      ? 'never' : "#{time_ago_in_words(user.scanned_at)} ago"
+  end
 end

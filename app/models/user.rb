@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
   def ensure_ical_settings_exists
     self.ical_settings = IcalSettings.create_with_defaults
   end
+
+  def scanned!
+    self.scanned_at = Time.now
+    save
+  end
 end

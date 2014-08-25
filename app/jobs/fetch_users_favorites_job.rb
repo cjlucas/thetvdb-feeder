@@ -24,8 +24,7 @@ class FetchUsersFavoritesJob
       end
     end
 
-    user.updated_at = Time.now
-    user.save
+    user.scanned!
   end
 
   def user_favorites(user, &block)
