@@ -43,4 +43,21 @@ describe User, :type => :model do
       expect(user.episodes.to_a.select { |e| e.tvdb_id == 2 }).to_not be_empty
     end
   end
+
+  context 'when looking up using User::uuid' do
+    it 'should return nil if no user can be found' do
+      user = User.uuid('03e5a94d-3af2-4df2-928d-8ce2d5ab78e9')
+      expect(user).to be_nil
+    end
+
+    it 'should return a user if a matching user is found' do
+      uuid = '03e5a94d-3af2-4df2-928d-8ce2d5ab78e9'
+      user = valid_user(uuid: uuid)
+      user.save
+
+      user = User.uuid(uuid)
+      expect(user).to be_a(User)
+      expect(user.uuid).to eql(uuid)
+    end
+  end
 end
