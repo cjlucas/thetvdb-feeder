@@ -18,7 +18,7 @@ module ApplicationHelper
     container = {
         'a week from now' => 1.week,
         'a month from now' => 1.month,
-        'forever' => 5.years
+        'forever' => 5.years.to_i
     }
 
     default = current_user.ical_settings.end_offset
