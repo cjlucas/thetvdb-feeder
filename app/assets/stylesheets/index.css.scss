@@ -38,12 +38,9 @@ body
   margin: 0 auto;
 }
 
-#login input
+form#login
 {
-  outline-style: none;
-  border: 1px solid $mainColor;
-  font-size: x-large;
-  background-color: $bgColor;
+  display: inherit;
 }
 
 img#fork-me

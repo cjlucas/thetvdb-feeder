@@ -7,24 +7,10 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
-  def login
-    @user = User.where(tvdb_id: params[:id]).first
-    if @user.nil?
-      redirect_to action: :new, id: params[:id]
-    else
-      session[:uuid] = @user.uuid
-      redirect_to '/'
-    end
-  end
-
-  def logout
-    session[:uuid] = nil
-    redirect_to '/'
-  end
-
   def refresh
     flash[:alert] = 'Your feeds are currently being refreshed'
     Resque.enqueue(FetchUsersFavoritesJob, current_user)
+    Resque.enqueue(RefreshSeriesJob)
     redirect_to '/'
   end
 

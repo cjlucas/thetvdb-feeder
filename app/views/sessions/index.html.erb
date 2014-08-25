@@ -1,0 +1,10 @@
+<h2>Login</h2>
+<h4 type="button" data-toggle="popover" title="Title" data-content="Content goes here">Please enter your TVDB account ID</h4>
+<div class="input-group login-form">
+  <form id="login" method="POST" action="<%= login_path %>">
+    <input type="text" class="form-control" name="id"/>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Login</button>
+      </span>
+  </form>
+</div>
