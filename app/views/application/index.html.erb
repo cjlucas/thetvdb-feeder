@@ -13,7 +13,7 @@
       favorite series with
       <strong><%= current_user.episodes.upcoming.count %></strong>
       upcoming episodes.</p>
-    <p>Your series list was last updated <strong>yesterday</strong>, but you can <a href="#">refresh it</a> now.</p>
+    <p>Your series list was last updated <strong><%= time_ago_in_words(current_user.updated_at) %> ago</strong>, but you can <a href="#">refresh it</a> now.</p>
     <h2>iCalendar</h2>
     <p>Your personalized
       <a href="<%= ical_path uid: current_user.uuid %>">iCal feed</a>

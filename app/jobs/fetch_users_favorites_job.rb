@@ -23,6 +23,9 @@ class FetchUsersFavoritesJob
         Resque.enqueue(FetchSeriesJob, series)
       end
     end
+
+    user.updated_at = Time.now
+    user.save
   end
 
   def user_favorites(user, &block)
