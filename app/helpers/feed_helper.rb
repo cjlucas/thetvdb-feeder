@@ -1,8 +1,4 @@
 module FeedHelper
-  def sort_by_start_time(episodes)
-    episodes.sort_by { |ep| episode_start_time(ep) }
-  end
-
   def airtime_to_secs(airtime)
     time = Chronic.parse(airtime)
     (time.hour * 60 * 60) + (time.min * 60) + time.sec

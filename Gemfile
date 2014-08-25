@@ -31,7 +31,7 @@ group :development do
   gem 'wirble'
 end
 
-gem 'rspec-rails', '~> 3.0.0', group: :test
+gem 'rspec-rails', '~> 3.0.0', group: [:test, :development]
 
 gem 'resque'
 

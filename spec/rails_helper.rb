@@ -41,3 +41,18 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+def valid_user(**args)
+  required_args = { tvdb_id: '69275C4783AC3BE1' }
+  User.new(required_args.merge(args))
+end
+
+def valid_series(**args)
+  required_args = { tvdb_id: 76290 }
+  Series.new(required_args.merge(args))
+end
+
+def valid_episode(**args)
+  required_args = { tvdb_id: 312929 }
+  Episode.new(required_args.merge(args))
+end

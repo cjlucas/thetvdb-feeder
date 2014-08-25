@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   before_create :ensure_uuid_exists
   before_create :ensure_ical_settings_exists
+  validates_presence_of :tvdb_id
 
   scope :uuid, ->(uuid) { where(uuid: uuid).include_settings.first }
 
