@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    if session[:new_user]
+      flash[:alert] = 'Welcome! Feel free to customize your feeds ' \
+      'while we scan your favorites list'
+      session[:new_user] = false
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 end

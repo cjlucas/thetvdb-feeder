@@ -73,3 +73,15 @@ a
   color: $accentColor;
   font-weight: 600;
 }
+
+.alert
+{
+  text-align: left;
+}
+
+.alert-blue
+{
+  background-color: lighten($accentColor, 30);
+  border-color: $accentColor;
+  color: $accentColor;
+}

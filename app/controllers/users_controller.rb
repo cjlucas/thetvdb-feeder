@@ -1,24 +1,31 @@
 class UsersController < ApplicationController
   def new
-    @user = User.create(tvdb_id: params[:tvdb_id])
+    @user = User.create(tvdb_id: params[:id])
     Resque.enqueue(FetchUsersFavoritesJob, @user)
-    render json: @user
+    session[:uuid] = @user.uuid
+    session[:new_user] = true
+    redirect_to '/'
   end
 
-  def get
-    @user = User.where(tvdb_id: params[:tvdb_id]).first
+  def login
+    @user = User.where(tvdb_id: params[:id]).first
     if @user.nil?
-      redirect_to action: :new
+      redirect_to action: :new, id: params[:id]
     else
-      render json: @user
+      session[:uuid] = @user.uuid
+      redirect_to '/'
     end
-
-    session[:uuid] = @user.uuid
   end
 
   def logout
     session[:uuid] = nil
-    head 200
+    redirect_to '/'
+  end
+
+  def refresh
+    flash[:alert] = 'Your feeds are currently being refreshed'
+    Resque.enqueue(FetchUsersFavoritesJob, current_user)
+    redirect_to '/'
   end
 
   def update_settings
@@ -37,5 +44,11 @@ class UsersController < ApplicationController
     @user.ical_settings.save
 
     head 200
+  end
+
+  private
+
+  def current_user
+    @current_user ||= User.uuid(session[:uuid])
   end
 end
