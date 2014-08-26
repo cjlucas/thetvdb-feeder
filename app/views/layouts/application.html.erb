@@ -19,6 +19,8 @@
   <div id="subtitle">Turn your TVDB favorites list into RSS and iCal feeds</div>
 </div>
 
+<%= render partial: 'shared/alert' unless flash[:alert].nil? %>
+
 <div id="content">
   <%= yield %>
 </div>

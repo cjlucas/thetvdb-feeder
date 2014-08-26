@@ -11,7 +11,10 @@ class DashboardController < ApplicationController
   private
 
   def require_login
-    redirect_to login_path if current_user.nil?
+    if current_user.nil?
+      flash[:alert] = 'Error: You must be logged in first.'
+      redirect_to login_path if current_user.nil?
+    end
   end
 
   def current_user

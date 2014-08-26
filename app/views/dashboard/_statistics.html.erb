@@ -3,4 +3,4 @@
   favorite series with
   <strong><%= current_user.episodes.upcoming.count %></strong>
   upcoming episodes.</p>
-<p>Your series list was last updated <strong><%= last_scanned_in_words %></strong>, but you can <%= link_to('refresh it', refresh_path, remote: true) %> now.</p>
+<p>Your series list was last updated <strong><%= last_scanned_in_words %></strong>, but you can <%= link_to('refresh it', refresh_path) %> now.</p>

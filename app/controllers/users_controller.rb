@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def refresh
-    flash[:alert] = 'Your feeds are currently being refreshed'
+    flash[:alert] = 'Your feeds are currently being refreshed.'
     Resque.enqueue(FetchUsersFavoritesJob, current_user)
     Resque.enqueue(RefreshSeriesJob)
     redirect_to dashboard_path
