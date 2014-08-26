@@ -3,16 +3,15 @@ updateSettingsAsync = (key, value) ->
   data[key] = value
   $.post '/users/settings', data
 
+refreshStatistics = () ->
+  $.ajax
+    url: '/dashboard/statistics'
+    success: (data) -> $('#statistics').html(data)
+
 $(document).ready ->
   $('.setting').change () ->
     selectId = $(this).attr('id')
     selectedValued = $('#' + selectId + ' option:selected').val()
     updateSettingsAsync selectId, selectedValued
 
-#  $('#login').on 'click', () ->
-#    $.ajax
-#      type: 'POST'
-#      url: '/login',
-#      data: {id: $('input[type="text"]').val()},
-#      async: false
-#      complete: () -> location.reload()
+  setInterval(refreshStatistics, 5000)

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'users/settings' => 'users#update_settings'
 
   get 'dashboard' => 'dashboard#index', as: :dashboard
+  get 'dashboard/statistics' => 'dashboard#statistics', as: :statistics
 
   get 'feeds/ical' => 'feed#ical', as: :ical
 end

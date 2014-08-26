@@ -1,0 +1,6 @@
+<h2>Statistics</h2>
+<p>You currently have <strong><%= current_user.series.count %></strong>
+  favorite series with
+  <strong><%= current_user.episodes.upcoming.count %></strong>
+  upcoming episodes.</p>
+<p>Your series list was last updated <strong><%= last_scanned_in_words %></strong>, but you can <%= link_to('refresh it', refresh_path, remote: true) %> now.</p>
