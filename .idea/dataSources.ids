@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails thetvdb-feeder: development" uuid="ec7339b1-a3ef-4137-8eb0-d0679fe7ef45">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails thetvdb-feeder: test" uuid="abbf416a-12f8-4911-9130-e445c7ac45e3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

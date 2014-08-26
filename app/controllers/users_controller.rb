@@ -4,14 +4,14 @@ class UsersController < ApplicationController
     Resque.enqueue(FetchUsersFavoritesJob, @user)
     session[:uuid] = @user.uuid
     session[:new_user] = true
-    redirect_to '/'
+    redirect_to root_path
   end
 
   def refresh
     flash[:alert] = 'Your feeds are currently being refreshed'
     Resque.enqueue(FetchUsersFavoritesJob, current_user)
     Resque.enqueue(RefreshSeriesJob)
-    redirect_to '/'
+    redirect_to dashboard_path
   end
 
   def update_settings

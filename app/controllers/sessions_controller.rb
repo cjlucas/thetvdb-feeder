@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
   def login
     @user = User.find_by_tvdb_id(params[:id])
     if @user.nil?
-      redirect_to '/users/new', id: params[:id]
+      redirect_to new_user_path, id: params[:id]
     else
       session[:uuid] = @user.uuid
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 
   def logout
-    session[:uuid] = nil
-    redirect_to '/'
+    session.destroy
+    redirect_to root_path
   end
 end

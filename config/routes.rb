@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'application#index'
 
   get 'users/refresh' => 'users#refresh', as: :refresh
-  get 'users/new' => 'users#new'
+  get 'users/new' => 'users#new', as: :new_user
 
   get 'login' => 'sessions#index', as: :login
   post 'login' => 'sessions#login'
