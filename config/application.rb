@@ -24,7 +24,9 @@ module ThetvdbFeeder
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
+    # config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
+
+    Resque.redis = ENV['REDISCLOUD_URL'] if Rails.env.production?
 
     def tvdb_api_key
       raise 'TheTVDB api key is not set' if ENV['TVDB_API_KEY'].nil?
