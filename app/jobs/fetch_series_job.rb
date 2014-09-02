@@ -28,6 +28,9 @@ class FetchSeriesJob
 
     # create/update episodes
     tvdb.get_all_episodes(tvdb_series).each do |tvdb_episode|
+      # don't populate db with old episodes
+      next if tvdb_episode.air_date < 1.month.ago
+
       model_args = episode_model_args(tvdb_episode)
 
       episode = Episode.where(tvdb_id: model_args[:tvdb_id]).first
