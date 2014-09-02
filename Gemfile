@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -50,7 +50,7 @@ gem 'thin'
 
 gem 'twitter-bootstrap-rails'
 
-gem 'pg'
+gem 'pg', group: [:development, :production]
 
 gem 'newrelic_rpm'
 
