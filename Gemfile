@@ -42,8 +42,6 @@ gem 'nokogiri'
 
 gem 'icalendar'
 
-gem 'chronic'
-
 gem 'uuidtools'
 
 gem 'thin'

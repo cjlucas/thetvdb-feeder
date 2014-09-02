@@ -31,7 +31,6 @@ GEM
     awesome_print (1.2.0)
     bond (0.5.1)
     builder (3.2.2)
-    chronic (0.10.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -177,7 +176,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bond
-  chronic
   coffee-rails (~> 4.0.0)
   icalendar
   jbuilder (~> 2.0)
