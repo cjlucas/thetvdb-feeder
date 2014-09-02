@@ -52,8 +52,6 @@ gem 'twitter-bootstrap-rails'
 
 gem 'pg', group: [:development, :production]
 
-gem 'newrelic_rpm'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
