@@ -9,6 +9,7 @@ class FeedController < ApplicationController
     .includes(:series)
     .aired_between(start_date, end_date)
 
-    render layout: false
+    data = render_to_string layout: false
+    send_data data, filename: 'tvdbfeeder.ics'
   end
 end
