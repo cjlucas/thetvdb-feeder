@@ -11,7 +11,9 @@ describe SessionsController, :type => :controller do
   context 'when accessing sessions#login with a non-existing user' do
     it 'should redirect to users#new' do
       get :login, id: 'fake id'
-      expect(response).to redirect_to(new_user_path)
+      expect(response).to redirect_to(controller: 'users',
+                                      action: 'new',
+                                      id: 'fake id')
     end
   end
 
