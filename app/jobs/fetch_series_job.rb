@@ -28,6 +28,7 @@ class FetchSeriesJob
 
     # create/update episodes
     tvdb.get_all_episodes(tvdb_series).each do |tvdb_episode|
+      next if tvdb_episode.air_date.nil?
       # don't populate db with old episodes
       next if tvdb_episode.air_date < 1.month.ago
 
