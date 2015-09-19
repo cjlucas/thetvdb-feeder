@@ -30,9 +30,7 @@ class FetchUsersFavoritesJob
     end
 
     # delete series if no longer in user's favorites
-    p tvdb_ids.size
     user.series.each do |series|
-      p series.tvdb_id
       user.series.delete(series) unless tvdb_ids.include?(series.tvdb_id)
     end
 
