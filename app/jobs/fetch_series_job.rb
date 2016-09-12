@@ -16,6 +16,10 @@ class FetchSeriesJob
     series = Series.find(@series_id)
     tvdb = TvdbParty::Search.new(Rails.application.tvdb_api_key)
     tvdb_series = tvdb.get_series_by_id(series.tvdb_id)
+    if tvdb_series.nil?
+      puts "Failed to get series info for ID #{series.tvdb_id}"
+      return
+    end
 
     # create/update series
     model_args = series_model_args(tvdb_series)
