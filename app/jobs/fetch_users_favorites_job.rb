@@ -39,10 +39,10 @@ class FetchUsersFavoritesJob
 
   def user_favorites(user, &block)
     data = Net::HTTP.get(user_favorites_api_uri(user.tvdb_id))
-    Nokogiri.parse(data).xpath(FAVORITE_SERIES_XPATH)
-      .map { |e| e.child }
-      .compact
-      .map { |e| e.text.to_i }
+    Nokogiri.parse(data).xpath(FAVORITE_SERIES_XPATH).collect do |element|
+      next if element.child.nil?
+      yield element.child.text.to_i
+    end
   end
 
   def user_favorites_api_uri(account_id)
